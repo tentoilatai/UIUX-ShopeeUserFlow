@@ -30,7 +30,7 @@
     <div class="mermaid">
         graph TD;
             %% Điểm bắt đầu
-            A((Người dùng truy cập Shopee)) -->|Duyệt sản phẩm| B[Danh sách sản phẩm]
+            A((Người dùng truy cập Shopee)) -->|Nhập tên sản phẩm cần mua vào thanh tìm kiếm| B[Danh sách sản phẩm]
     
             %% Chọn sản phẩm
             B -->|Nhấp vào sản phẩm| C[Xem chi tiết sản phẩm]
@@ -39,20 +39,22 @@
             %% Đăng nhập hoặc đăng ký trước khi thanh toán
             D -->|Yêu cầu đăng nhập| E{Bạn đã có tài khoản?}
             E -->|Có| F[Trang đăng nhập] --> G[Trang thanh toán]
-            E -->|Không| H[Đăng ký tài khoản] --> G
+            E -->|Không| H[Trang đăng ký] --> F
     
             %% Quá trình thanh toán
-            G -->|Nhập địa chỉ giao hàng hoặc chọn địa chỉ giao hàng từ sổ địa chỉ & thanh toán| I{Xác nhận đơn hàng?}
+            G -->|Nhập địa chỉ giao hàng hoặc chọn từ sổ địa chỉ & thanh toán| I{Xác nhận đơn hàng?}
     
             %% Xử lý đơn hàng & vận chuyển
             I -->|Có| J[Người bán xử lý đơn hàng]
-            J -->|Người bán gửi hàng| K[Theo dõi vận chuyển]
+            J -->|Người bán gửi hàng| K[Người nhận theo dõi vận chuyển]
             K -->|Nhận hàng| L[Xác nhận đã nhận hàng trên ứng dụng]
             L -->|Để lại đánh giá để nhận xu| M((Kết thúc))
     
-            %% Hủy đơn hàng
-            I -->|Không| N((Không thực hiện thanh toán và thoát khỏi trang thanh toán))
+            %% Hủy đơn hàng hoặc quay lại mua sắm
+            I -->|Không| N((Không thanh toán, thoát khỏi trang))
+            N -->|Quay lại chọn sản phẩm| B
     </div>
+    
     
     
 
