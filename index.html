@@ -29,30 +29,31 @@
 
     <div class="mermaid">
         graph TD;
-            %% Start point
-            A((User Visit Shopee)) -->|Browse Products| B[Product Listings]
+            %% Điểm bắt đầu
+            A((Người dùng truy cập Shopee)) -->|Duyệt sản phẩm| B[Danh sách sản phẩm]
     
-            %% Product Selection
-            B -->|Click Product| C[Product Details]
-            C -->|Add to Cart| D[Shopping Cart]
+            %% Chọn sản phẩm
+            B -->|Nhấp vào sản phẩm| C[Xem chi tiết sản phẩm]
+            C -->|Thêm vào giỏ hàng| D[Giỏ hàng]
     
-            %% Login or Register Before Checkout
-            D -->|Login Required| E{Already a User?}
-            E -->|Yes| F[Login Page] --> G[Checkout Page]
-            E -->|No| H[Register] --> G
+            %% Đăng nhập hoặc đăng ký trước khi thanh toán
+            D -->|Yêu cầu đăng nhập| E{Bạn đã có tài khoản?}
+            E -->|Có| F[Trang đăng nhập] --> G[Trang thanh toán]
+            E -->|Không| H[Đăng ký tài khoản] --> G
     
-            %% Checkout Process
-            G -->|Enter Shipping & Payment Details| I{Confirm Order?}
+            %% Quá trình thanh toán
+            G -->|Nhập địa chỉ giao hàng hoặc chọn địa chỉ giao hàng từ sổ địa chỉ & thanh toán| I{Xác nhận đơn hàng?}
     
-            %% Order Processing & Shipment
-            I -->|Yes| J[Order Processing]
-            J -->|Shipped| K[Delivery & Tracking]
-            K -->|Order Received| L[Confirm Delivery]
-            L -->|Leave Review| M((End))
+            %% Xử lý đơn hàng & vận chuyển
+            I -->|Có| J[Người bán xử lý đơn hàng]
+            J -->|Người bán gửi hàng| K[Theo dõi vận chuyển]
+            K -->|Nhận hàng| L[Xác nhận đã nhận hàng trên ứng dụng]
+            L -->|Để lại đánh giá để nhận xu| M((Kết thúc))
     
-            %% Cancel Order Flow
-            I -->|No| N((Order Canceled))
+            %% Hủy đơn hàng
+            I -->|Không| N((Không thực hiện thanh toán và thoát khỏi trang thanh toán))
     </div>
+    
     
 
 </body>
