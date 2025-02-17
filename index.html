@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopee User Flow</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.4.0/mermaid.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            mermaid.initialize({ startOnLoad: true });
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .mermaid {
+            text-align: center;
+            margin: 0 auto;
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Shopee User Flow Diagram</h2>
+
+    <div class="mermaid">
+        graph TD;
+            %% Start point
+            A((User Visit Shopee)) -->|Browse Products| B[Product Listings]
+    
+            %% Product Selection
+            B -->|Click Product| C[Product Details]
+            C -->|Add to Cart| D[Shopping Cart]
+    
+            %% Login or Register Before Checkout
+            D -->|Login Required| E{Already a User?}
+            E -->|Yes| F[Login Page] --> G[Checkout Page]
+            E -->|No| H[Register] --> G
+    
+            %% Checkout Process
+            G -->|Enter Shipping & Payment Details| I{Confirm Order?}
+    
+            %% Order Processing & Shipment
+            I -->|Yes| J[Order Processing]
+            J -->|Shipped| K[Delivery & Tracking]
+            K -->|Order Received| L[Confirm Delivery]
+            L -->|Leave Review| M((End))
+    
+            %% Cancel Order Flow
+            I -->|No| N((Order Canceled))
+    </div>
+    
+
+</body>
+</html>
